@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laziz | Personal Website</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #080b14;
+    --card: #101727;
+    --blue: #4285ff;
+    --text: #f4f7ff;
+    --muted: #929db2;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(8,11,20,.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #ffffff0c;
+}
+
+nav {
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+.menu {
+    display: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 90px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: var(--blue);
+    filter: blur(180px);
+    opacity: .16;
+    left: -180px;
+    top: 100px;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 10px 17px;
+    border: 1px solid #4285ff55;
+    background: #4285ff12;
+    color: #75aaff;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 75px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin: 25px 0;
+    max-width: 520px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 23px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px #4285ff55;
+}
+
+.btn-outline {
+    border: 1px solid #ffffff25;
+}
+
+.btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.profile img {
+    width: 330px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 1px solid #4285ff66;
+    box-shadow: 0 0 70px #4285ff20;
+}
+
+.profile::before {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 400px;
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+    transform: rotate(7deg);
+    z-index: -1;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title small {
+    color: var(--blue);
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-top: 12px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+/* ABOUT */
+
+.about-card {
+    background: var(--card);
+    padding: 40px;
+    border: 1px solid #ffffff10;
+    border-radius: 18px;
+    line-height: 2;
+    color: var(--muted);
+}
+
+.about-card strong {
+    color: white;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.skill {
+    background: var(--card);
+    border: 1px solid #ffffff10;
+    padding: 28px 15px;
+    border-radius: 15px;
+    text-align: center;
+    transition: .3s;
+}
+
+.skill:hover {
+    transform: translateY(-8px);
+    border-color: var(--blue);
+}
+
+.skill .icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.skill h3 {
+    font-size: 16px;
+}
+
+.skill p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.project {
+    background: var(--card);
+    padding: 30px;
+    border: 1px solid #ffffff10;
+    border-radius: 17px;
+    transition: .3s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+    border-color: var(--blue);
+}
+
+.project-icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.project h3 {
+    margin-bottom: 12px;
+}
+
+.project p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.project .type {
+    display: inline-block;
+    color: #76aaff;
+    background: #4285ff15;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    background: linear-gradient(135deg, #14264a, #101727);
+    padding: 55px 25px;
+    border-radius: 22px;
+    text-align: center;
+    border: 1px solid #4285ff44;
+}
+
+.contact-box h2 {
+    font-size: 32px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin: 18px 0 28px;
+}
+
+footer {
+    border-top: 1px solid #ffffff10;
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .8s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 768px) {
+    .menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #101727;
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 55px;
+    }
+
+    .hero p {
+        margin: 20px auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .profile img,
+    .profile::before {
+        width: 260px;
+        height: 320px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 29px;
+    }
+
+    .about-card {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="#home" class="logo">LAZIZ<span>.</span></a>
+
+            <div class="menu" id="menu">☰</div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Bosh sahifa</a></li>
+                <li><a href="#about">Men haqimda</a></li>
+                <li><a href="#skills">Ko‘nikmalar</a></li>
+                <li><a href="#projects">Loyihalar</a></li>
+                <li><a href="#contact">Aloqa</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+
+            <div class="hero-text">
+                <div class="tag">✦ PERSONAL PORTFOLIO</div>
+
+                <h1>Salom, men <span>Laziz</span></h1>
+
+                <p>
+                    Men zamonaviy texnologiyalar, dasturlash
+                    va kreativ loyihalar yaratishga qiziqaman.
+                    Yangi g‘oyalarni real loyihalarga aylantirish
+                    mening maqsadim.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        Loyihalarim →
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Men bilan bog‘lanish
+                    </a>
+                </div>
+            </div>
+
+            <div class="profile">
+                <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700"
+                alt="Laziz profil rasmi">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container reveal">
+
+        <div class="section-title">
+            <small>ABOUT ME</small>
+            <h2>Men haqimda</h2>
+            <p>Men kimman va nimalarga qiziqaman?</p>
+        </div>
+
+        <div class="about-card">
+            Mening ismim <strong>Laziz</strong>.
+            Men texnologiya olamiga qiziqaman.
+            Dasturlash, web saytlar yaratish,
+            Telegram botlar va yangi loyihalar
+            ustida ishlashni yoqtiraman.
+
+            <br><br>
+
+            Har kuni yangi bilimlarni o‘rganishga,
+            o‘z ustimda ishlashga va yangi marralarni
+            zabt etishga intilaman.
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+    <div class="container reveal">
+
+        <div class="section-title">
+            <small>MY SKILLS</small>
+            <h2>Ko‘nikmalarim</h2>
+            <p>Men foydalanadigan texnologiyalar</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                <div class="icon">🐍</div>
+                <h3>Python</h3>
+                <p>Programming</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🌐</div>
+                <h3>HTML</h3>
+                <p>Web structure</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Web design</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Web development</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+    <div class="container reveal">
+
+        <div class="section-title">
+            <small>MY WORK</small>
+            <h2>Loyihalarim</h2>
+            <p>Men ishlagan va yaratgan loyihalar</p>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project">
+                <div class="project-icon">🤖</div>
+                <h3>Telegram Bot</h3>
+                <p>
+                    Telegram platformasi uchun
+                    avtomatlashtirilgan botlar yaratish.
+                </p>
+                <span class="type">PYTHON</span>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">📥</div>
+                <h3>Video Downloader</h3>
+                <p>
+                    Ijtimoiy tarmoqlardan videolarni
+                    yuklab olish uchun loyiha.
+                </p>
+                <span class="type">PYTHON</span>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">💻</div>
+                <h3>Personal Website</h3>
+                <p>
+                    Shaxsiy portfolio va zamonaviy
+                    web interfeyslar yaratish.
+                </p>
+                <span class="type">HTML CSS JS</span>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">🚀</div>
+                <h3>New Projects</h3>
+                <p>
+                    Yangi g‘oyalar, kreativ yechimlar
+                    va texnologik loyihalar.
+                </p>
+                <span class="type">DEVELOPMENT</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="container reveal">
+
+        <div class="contact-box">
+            <h2>Keling, bog‘lanamiz!</h2>
+
+            <p>
+                Hamkorlik yoki yangi loyihalar bo‘yicha
+                men bilan bog‘lanishingiz mumkin.
+            </p>
+
+            <a href="https://t.me/" target="_blank"
+               class="btn btn-primary">
+                Telegram orqali bog‘lanish →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © <span id="year"></span> LAZIZ.
+    Barcha huquqlar himoyalangan.
+</footer>
+
+<script>
+
+// MOBILE MENU
+
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+
+menu.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
+
+// SCROLL ANIMATION
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+// CURRENT YEAR
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
